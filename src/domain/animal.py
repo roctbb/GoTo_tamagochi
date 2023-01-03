@@ -2,6 +2,8 @@ import random
 import time
 from threading import Thread
 
+from domain.common import get_name
+
 
 class Animal:
     def __init__(self):
@@ -11,11 +13,17 @@ class Animal:
         self.__health = self.__max_health
         self.__max_mood = random.randint(50, 250)
         self.__mood = self.__max_mood
+        self.__name = get_name()
+
 
     def tick(self):
         self.__mood -= 1
         self.__hunger -= 1
         self.__health -= 1
+
+    @property
+    def name(self):
+        return self.__name
 
     @property
     def hunger(self):
