@@ -1,6 +1,9 @@
+from animal import Animal
 class Farm:
-    def __init__(self, ):
-        self.animals = []
+    def __init__(self, n):
+        self.__animals = []
+
+
 
     def get_animal(self, n):
         raise NotImplementedError
