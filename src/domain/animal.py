@@ -50,3 +50,8 @@ class Animal:
         if self.__mood > 0 and self.__health > 0 and self.__hunger > 0:
             return True
         return False
+
+    def is_bad(self):
+        if self.__mood < 100 or self.__health < 150 or self.__hunger < 100:
+            return True
+        return False
