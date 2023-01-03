@@ -12,5 +12,7 @@ def test_timer():
 
     assert abs(start_health - a.health) in range(4, 6)
 
+def test_feed():
+    assert
 
 

@@ -19,6 +19,7 @@ class Animal:
         while True:
             self.__tick()
             time.sleep(1)
+
     def __tick(self):
         self.__mood -= 1
         self.__hunger -= 1
@@ -49,3 +50,4 @@ class Animal:
         if self.__mood > 0 and self.__health > 0 and self.__hunger > 0:
             return True
         return False
+
