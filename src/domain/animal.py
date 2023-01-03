@@ -37,10 +37,10 @@ class Animal:
         return self.__mood
 
     def feed(self):
-        self.__hunger = 100
+        self.__hunger = self.__max_hunger
 
     def wash(self):
-        self.__health -= 1
+        self.__health = self.__max_health
 
     def play(self):
         self.__mood = self.__max_mood
