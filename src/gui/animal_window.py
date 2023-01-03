@@ -7,13 +7,15 @@ from domain.game import Game
 
 
 class AnimalWindow:
-    def __init__(self, animal):
-        self.window = Tk()
+    def __init__(self, parent, animal):
+        self.window = Toplevel(parent)
         self.window.title("Питомец")
         self.health = IntVar()
         self.health.set(animal.health)
         self.hunger = IntVar()
         self.hunger.set(animal.hunger)
+
+        print(self.hunger.get(), self.health.get())
 
         self.animal = animal
 
@@ -23,13 +25,9 @@ class AnimalWindow:
         Progressbar(self.window, variable=self.health).pack(padx=25, pady=25)
         Button(self.window, text="Поиграть", command=self.play).pack(padx=25, pady=25)
 
-        self.window.after(1000, self.update)
-
-    def update(self):
+    def tick(self):
         self.health.set(self.animal.health)
         self.hunger.set(self.animal.hunger)
-        self.window.after(1000, self.update)
-        print(self.animal.hunger)
 
 
     def feed(self):
@@ -39,6 +37,9 @@ class AnimalWindow:
 
     def play(self):
         self.animal.play()
+
+    def close(self):
+        self.window.destroy()
 
 
 if __name__ == "__main__":

@@ -9,27 +9,20 @@ class Game:
         self.__points = None
         self.__record = None
         self.__started = False
-        self.__timer = Thread(target=self.__worker)
-        self.__timer.start()
 
-    def __worker(self):
-        while True:
-            if self.__started:
-                for animal in self.__farm.animals:
-
-                    if not animal.is_alive():
-                        self.end()
-                        break
-
-                    animal.tick()
-            time.sleep(1)
+    def tick(self):
+        if self.__started:
+            for animal in self.__farm.animals:
+                if not animal.is_alive():
+                    self.end()
+                    break
+                animal.tick()
 
     def start(self, difficulty):
         self.__farm = Farm(difficulty)
         self.__started = True
         self.__points = 0
 
-    @property
     def is_over(self):
         return not self.__started
 
@@ -47,5 +40,6 @@ class Game:
 
     def end(self):
         self.__started = False
+        print("Game is ended")
         if not self.__record or self.__points > self.__record:
             self.__record = self.__points

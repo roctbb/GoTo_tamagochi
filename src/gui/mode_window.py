@@ -20,12 +20,26 @@ class ModeWindow:
         Button(self.window, text="Средне", width=30, height=5, command=self.__start_medium).pack()
         Button(self.window, text="Сложно", width=30, height=5, command=self.__start_hard).pack()
 
+        self.window.after(1000, self.tick)
+
     def __show(self):
         self.window.deiconify()
-    def __check(self):
-        print(self.game.is_over())
-        if self.game.is_over() and self.farm_window:
-            self.farm_window.close()
+
+    def tick(self):
+        if self.farm_window:
+            self.farm_window.tick()
+
+        self.game.tick()
+
+        if self.game.is_over():
+            print("Over")
+            if self.farm_window:
+                try:
+                    self.farm_window.close()
+                except:
+                    pass
+
+        self.window.after(1000, self.tick)
 
     def __start_easy(self):
         self.__start_game_with_difficulty(5)
@@ -37,12 +51,11 @@ class ModeWindow:
         self.__start_game_with_difficulty(20)
 
     def __start_game_with_difficulty(self, difficulty):
-        self.window.withdraw()
         self.game.start(difficulty)
-        self.farm_window = FarmWindow(self.game.farm, self.__show)
+        self.farm_window = FarmWindow(self.window, self.game.farm, self.__show)
+        self.window.withdraw()
 
 
 if __name__ == "__main__":
     ModeWindow(Game())
-
     mainloop()

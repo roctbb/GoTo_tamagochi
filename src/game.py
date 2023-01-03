@@ -3,5 +3,5 @@ from src.domain.game import Game
 from tkinter import *
 
 game = Game()
-ModeWindow(game)
+w = ModeWindow(game)
 mainloop()
