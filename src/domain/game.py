@@ -30,6 +30,10 @@ class Game:
         self.__points = 0
 
     @property
+    def is_over(self):
+        return not self.__started
+
+    @property
     def points(self):
         return self.__points
 
@@ -41,11 +45,7 @@ class Game:
     def farm(self):
         return self.__farm
 
-
     def end(self):
         self.__started = False
         if not self.__record or self.__points > self.__record:
-            print("Вау, это новый рекорд:", self.__points)
             self.__record = self.__points
-        else:
-            print("Мог бы лучше сыграть.")

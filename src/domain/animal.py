@@ -7,7 +7,7 @@ from domain.common import get_name
 
 class Animal:
     def __init__(self):
-        self.__max_hunger = random.randint(50, 250)
+        self.__max_hunger = random.randint(5, 15)
         self.__hunger = self.__max_hunger
         self.__max_health = random.randint(100, 300)
         self.__health = self.__max_health

@@ -12,7 +12,6 @@ class AnimalWindow:
         self.window.title("Питомец")
         self.health = IntVar()
         self.health.set(animal.health)
-        print("hunger", animal.hunger)
         self.hunger = IntVar()
         self.hunger.set(animal.hunger)
 
@@ -27,10 +26,10 @@ class AnimalWindow:
         self.window.after(1000, self.update)
 
     def update(self):
-        print(self.hunger.get())
         self.health.set(self.animal.health)
         self.hunger.set(self.animal.hunger)
         self.window.after(1000, self.update)
+        print(self.animal.hunger)
 
 
     def feed(self):
