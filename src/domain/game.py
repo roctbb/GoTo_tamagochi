@@ -29,10 +29,6 @@ class Game:
         self.__started = True
         self.__points = 0
 
-        while self.__started:
-            print(self.__farm.get_stats())
-            time.sleep(1)
-
     @property
     def points(self):
         return self.__points
