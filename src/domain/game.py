@@ -25,9 +25,13 @@ class Game:
             time.sleep(1)
 
     def start(self):
-        self.__started = True
         self.__farm = Farm(10)
+        self.__started = True
         self.__points = 0
+
+        while self.__started:
+            print(self.__farm.get_stats())
+            time.sleep(1)
 
     @property
     def points(self):

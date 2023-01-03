@@ -1,4 +1,4 @@
-from animal import Animal
+from domain.animal import Animal
 
 
 class Farm:
@@ -12,7 +12,7 @@ class Farm:
     def animals(self):
         return tuple(self.__animals)
 
-    def get_stats(self, n):
+    def get_stats(self):
         """
         [
             {
@@ -34,5 +34,5 @@ class Farm:
                     'mood': animal.mood,
                 }
             b.append(var)
-            return b
+        return b
 
