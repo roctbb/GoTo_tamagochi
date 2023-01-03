@@ -20,17 +20,19 @@ class Farm:
                 "health": 100,
                 "mood": 100,
                 "hunger": 100
-            }
+            },
+
         ]
         :return:
         """
+        b = []
         for animal in self.__animals:
-            var = [
-                {
+            var = {
                     'name': animal.name,
-                    'hunger': a,
-                    'health': Animal.health,
-                    'mood': Animal.mood,
+                    'hunger': animal.hunger,
+                    'health': animal.health,
+                    'mood': animal.mood,
                 }
-            ]
-        raise NotImplementedError
+            b.append(var)
+            return b
+
