@@ -12,14 +12,7 @@ class Animal:
         self.__max_mood = random.randint(50, 250)
         self.__mood = self.__max_mood
 
-        self.__timer = Thread(target=self.__worker)
-        self.__timer.start()
-
-    def __worker(self):
-        while True:
-            self.__tick()
-            time.sleep(1)
-    def __tick(self):
+    def tick(self):
         self.__mood -= 1
         self.__hunger -= 1
         self.__health -= 1

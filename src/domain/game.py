@@ -16,8 +16,16 @@ class Game:
     def __worker(self):
         while True:
             if self.__started:
-                # TODO: Tick every animal
-                pass
+                for animal in self.__farm.animals:
+                    # TODO: Tick every animal
+                    def __tick(self):
+                        self.__mood -= 1
+                        self.__hunger -= 1
+                        self.__health -= 1
+
+
+
+
 
     def start(self):
         self.__farm = Farm(10)
