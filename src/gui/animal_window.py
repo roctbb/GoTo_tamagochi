@@ -31,9 +31,11 @@ class AnimalWindow:
         self.hunger.set(self.animal.hunger)
         self.window.after(1000, self.update)
 
+
     def feed(self):
         print("feeding")
         self.animal.feed()
+
 
     def play(self):
         self.animal.play()
