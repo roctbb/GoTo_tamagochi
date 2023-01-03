@@ -5,6 +5,7 @@ import tkinter
 from tkinter import *
 
 from domain.farm import Farm
+from domain.game import Game
 
 
 class FarmWindow:
@@ -21,7 +22,8 @@ class FarmWindow:
 
 
 if __name__ == "__main__":
-    import pathlib
+    game = Game()
+    game.start(10)
 
-    window = FarmWindow(Farm(10))
+    window = FarmWindow(game.farm)
     mainloop()
