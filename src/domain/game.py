@@ -5,6 +5,7 @@ class Game:
         self.__record = None
 
     def start(self):
+
         raise NotImplementedError
 
     def end(self):
