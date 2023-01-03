@@ -1,4 +1,6 @@
 from animal import Animal
+
+
 class Farm:
     def __init__(self, n):
         self.__animals = []
@@ -6,10 +8,9 @@ class Farm:
         for i in range(n):
             self.__animals.append(Animal())
 
-
-    def get_animal(self, n):
-        if n > 0 and n < len(self.__animals):
-            return self.__animals
+    @property
+    def animals(self):
+        return tuple(self.__animals)
 
     def get_stats(self, n):
         """
@@ -23,13 +24,13 @@ class Farm:
         ]
         :return:
         """
-        for j in range(n):
+        for animal in self.__animals:
             var = [
                 {
-                    'name': '',
-                    'hunger': '',
-                    'healf': '',
-                    'mood': '',
+                    'name': animal.name,
+                    'hunger': a,
+                    'health': Animal.health,
+                    'mood': Animal.mood,
                 }
             ]
         raise NotImplementedError
