@@ -1,5 +1,6 @@
 from domain.animal import Animal
 from tkinter import
+вы
 
 
 class AnimalWindow:
