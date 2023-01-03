@@ -15,6 +15,7 @@ class Animal:
 
     @property
     def mood(self):
+        
         return self.__mood
 
     def feed(self):
