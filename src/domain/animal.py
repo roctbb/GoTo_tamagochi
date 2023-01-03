@@ -36,6 +36,18 @@ class Animal:
     def mood(self):
         return self.__mood
 
+    @property
+    def pr_max_hunger(self):
+        return self.__max_hunger
+
+    @property
+    def pr_max_mood(self):
+        return self.__max_mood
+
+    @property
+    def pr_max_health(self):
+        return self.__max_health
+
     def feed(self):
         self.__hunger = self.__max_hunger
 
@@ -44,6 +56,8 @@ class Animal:
 
     def play(self):
         self.__mood = self.__max_mood
+
+
 
     def is_alive(self):
         if self.__mood > 0 and self.__health > 0 and self.__hunger > 0:
