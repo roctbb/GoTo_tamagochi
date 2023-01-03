@@ -1,6 +1,7 @@
-def get_name():
-    file = open("names.txt")
-    data = file.read()
-    print(data)
+import random
 
-get_name()
+
+def get_name():
+    with open("../assets/names.txt") as file:
+        data = file.read().split('\n')
+    return random.choice(data)
