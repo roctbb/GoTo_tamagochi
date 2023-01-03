@@ -24,8 +24,8 @@ class Game:
                     animal.tick()
             time.sleep(1)
 
-    def start(self):
-        self.__farm = Farm(10)
+    def start(self, difficulty):
+        self.__farm = Farm(difficulty)
         self.__started = True
         self.__points = 0
 
@@ -40,6 +40,11 @@ class Game:
     @property
     def record(self):
         return self.__record
+
+    @property
+    def farm(self):
+        return self.__farm
+
 
     def end(self):
         self.__started = False
