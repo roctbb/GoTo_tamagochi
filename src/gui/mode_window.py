@@ -22,7 +22,8 @@ class ModeWindow:
 
         self.window.after(1000, self.tick)
 
-    def __show(self):
+    def __end(self):
+        self.game.end()
         self.window.deiconify()
 
     def tick(self):
@@ -32,7 +33,6 @@ class ModeWindow:
         self.game.tick()
 
         if self.game.is_over():
-            print("Over")
             if self.farm_window:
                 try:
                     self.farm_window.close()
@@ -52,7 +52,9 @@ class ModeWindow:
 
     def __start_game_with_difficulty(self, difficulty):
         self.game.start(difficulty)
-        self.farm_window = FarmWindow(self.window, self.game.farm, self.__show)
+
+        self.farm_window = FarmWindow(self.window, self.game.farm)
+        self.farm_window.on_close = self.__end
         self.window.withdraw()
 
 
