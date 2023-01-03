@@ -15,7 +15,6 @@ class Animal:
         self.__mood = self.__max_mood
         self.__name = get_name()
 
-
     def tick(self):
         self.__mood -= 1
         self.__hunger -= 1
@@ -52,6 +51,7 @@ class Animal:
         return False
 
     def is_bad(self):
-        if self.__mood < 100 or self.__health < 150 or self.__hunger < 100:
+        if self.__mood < self.__max_mood // 2 or self.__health < self.__max_health // 2 \
+                or self.__hunger < self.__max_hunger // 2:
             return True
         return False
