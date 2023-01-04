@@ -23,14 +23,14 @@ class AnimalWindow:
         print("Голод -", self.hunger_var.get(), ",", "Здоровье -", self.health_var.get(), ",", "Настроение -",
               self.mood_var.get())
 
-        Progressbar(self.window, variable=self.hunger_var, maximum=animal.pr_max_hunger).grid(row=1, column=0)
-        Button(self.window, text="Покормить", command=self.feed).grid(row=1, column=0)
+        Progressbar(self.window, variable=self.hunger_var, maximum=animal.pr_max_hunger).grid(row=1, column=2)
+        Button(self.window, text="Покормить", command=self.feed, fg="green").grid(row=1, column=3)
 
-        Progressbar(self.window, variable=self.health_var, maximum=animal.pr_max_health).grid(row=1, column=0)
-        Button(self.window, text="Помыть", command=self.wash).grid(row=1, column=0)
+        Progressbar(self.window, variable=self.health_var, maximum=animal.pr_max_health).grid(row=2, column=2)
+        Button(self.window, text="Помыть", command=self.wash, fg="green").grid(row=2, column=3)
 
-        Progressbar(self.window, variable=self.mood_var, maximum=animal.pr_max_mood).grid(row=1, column=0)
-        Button(self.window, text="Играть", command=self.play).grid(row=1, column=0)
+        Progressbar(self.window, variable=self.mood_var, maximum=animal.pr_max_mood).grid(row=3, column=2)
+        Button(self.window, text="Играть", command=self.play, fg="green").grid(row=3, column=3)
 
     def tick(self):
         self.update()
