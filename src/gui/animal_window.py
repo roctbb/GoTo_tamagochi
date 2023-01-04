@@ -37,7 +37,6 @@ class AnimalWindow:
 
         Label(self.window, text=image_names(), width=25, height=5).grid(row=0, column=1)
 
-
     def tick(self):
         self.update()
 

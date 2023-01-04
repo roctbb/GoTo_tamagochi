@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.messagebox import showinfo
 
+from domain.common import storage_path
 from domain.game import Game
 from gui.farm_window import FarmWindow
 
@@ -12,6 +13,9 @@ class ModeWindow:
         self.window.title("Выбор сложности")
         self.farm_window = None
         self.price_var = StringVar()
+        with open(storage_path("scores.txt")) as file:
+            data = file.read().split('\n')[-1]
+
 
         Label(self.window, textvariable=self.price_var, width=25, height=5).pack()
 

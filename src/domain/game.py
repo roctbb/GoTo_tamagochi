@@ -1,3 +1,4 @@
+from domain.common import storage_path
 from domain.farm import Farm
 
 
@@ -37,9 +38,13 @@ class Game:
     def farm(self):
         return self.__farm
 
+    def __save_record_to_storage(self):
+        with open(storage_path('scores.txt'), 'a') as file:
+            file.write(str(self.record) + "\n")
     def end(self):
         self.__started = False
         print("Game is ended")
         if not self.__record or self.__points > self.__record:
             self.__record = self.__points
+            self.__save_record_to_storage()
         self.__points = 0

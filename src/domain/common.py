@@ -16,3 +16,6 @@ def get_image():
 
 def asset_path(asset):
     return str(pathlib.Path(__file__).parent.resolve()) + os.sep + ".." + os.sep + "assets" + os.sep + asset
+
+def storage_path(filename):
+    return str(pathlib.Path(__file__).parent.resolve()) + os.sep + ".." + os.sep + "storage" + os.sep + filename
