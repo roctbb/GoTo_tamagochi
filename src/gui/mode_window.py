@@ -27,16 +27,17 @@ class ModeWindow:
         self.window.after(1000, self.tick)
 
     def __end(self):
-        self.game.end()
+        if not self.game.is_over():
+            self.game.end()
         self.window.deiconify()
         showinfo(title="Поражение", message="Вы проиграли!")
-        mainloop()
+
 
     def tick(self):
-        if self.farm_window:
-            self.farm_window.tick()
 
-        self.game.tick()
+        if self.farm_window:
+            self.game.tick()
+            self.farm_window.tick()
 
         if self.game.is_over():
             if self.farm_window:

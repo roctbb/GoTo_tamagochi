@@ -1,7 +1,9 @@
 from gui.animal_window import AnimalWindow
 from tkinter import *
-
+from config import *
 from domain.game import Game
+from domain.common import asset_path
+from PIL import Image, ImageTk
 
 
 class FarmWindow:
@@ -10,10 +12,19 @@ class FarmWindow:
         self.window = Toplevel(parent)
         self.window.title('Tamagotchi')
         self.children = []
+        self.__images = []
         self.on_close = None
 
+
+
         for i in range(len(self.farm.animals)):
-            Button(self.window, width=12, height=2, command=lambda: self.__show_window_for(self.farm.animals[i])).grid(
+            image_type = self.farm.animals[i].image
+            image_path = asset_path(IMAGES[image_type]["normal"])
+            img = Image.open(image_path).resize((100,100))
+            img_photo = ImageTk.PhotoImage(img)
+            self.__images.append(img_photo)
+
+            Button(self.window, image=img_photo, width=100, height=100, command=lambda: self.__show_window_for(self.farm.animals[i])).grid(
                 row=i // 5, column=i % 5)
 
         self.window.protocol("WM_DELETE_WINDOW", self.close)
@@ -27,6 +38,7 @@ class FarmWindow:
             self.on_close()
 
     def tick(self):
+
         for child in self.children:
             child.tick()
 
