@@ -50,9 +50,11 @@ class FarmWindow:
             self.on_close()
 
     def tick(self):
-        # TODO: пройтись по всем номерам животных (self.animals),
+        # TODO: пройтись по всем номерам животных (self.farm.animals),
         #  для каждого номера в кнопку по тем же номером (self.__btns) задать изображение под тем же номером (self.__images)
-        #  с сотоянием этого животного (animal.state)
+        #  с состоянием этого животного (animal.state)
+        for i in range(len(self.farm.animals)):
+            self.__animal_btns[i].configure(image=self.__images[i][self.farm.animals[i].state])
 
         for child in self.children:
             child.tick()
