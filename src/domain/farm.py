@@ -35,4 +35,3 @@ class Farm:
                 }
             b.append(var)
         return b
-

@@ -1,7 +1,7 @@
-
 from tkinter.ttk import *
 from tkinter import *
 from tkinter import messagebox
+
 
 # Функция для уменьшения жизни каждую секунду
 def check_life():
@@ -19,10 +19,12 @@ def check_life():
     else:
         window.after(1000, check_life)
 
+
 # функция для кормления
 def feed():
     # устанавливаем жизнь на максимум
     life.set(100)
+
 
 window = Tk()
 window.title("Питомец")

@@ -1,6 +1,5 @@
 from tkinter import *
-from tkinter import ttk
-from tkinter.messagebox import showerror, showwarning, showinfo
+from tkinter.messagebox import showinfo
 
 from domain.game import Game
 from gui.farm_window import FarmWindow

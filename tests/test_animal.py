@@ -14,5 +14,3 @@ def test_feed():
     a.wash()
     a.is_alive()
     print(a.health, a.hunger, a.mood, a.name)
-
-
