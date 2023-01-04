@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter import ttk
+from tkinter.messagebox import showerror, showwarning, showinfo
 
 from domain.game import Game
 from gui.farm_window import FarmWindow
@@ -28,7 +30,8 @@ class ModeWindow:
     def __end(self):
         self.game.end()
         self.window.deiconify()
-        self.price_var.set(f"Ваш рекорд: {self.game.record}")
+        showinfo(title="Поражение", message="Вы проиграли!")
+        mainloop()
 
     def tick(self):
         if self.farm_window:
