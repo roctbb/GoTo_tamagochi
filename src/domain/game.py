@@ -1,5 +1,3 @@
-from threading import Thread
-import time
 from domain.farm import Farm
 
 
