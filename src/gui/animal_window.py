@@ -16,7 +16,7 @@ class AnimalWindow:
         self.window = Toplevel(parent)
         self.window.title("Питомец")
         self.window.geometry("400x200+300+300")
-
+        self.window.geometry("+300+300")
         self.animal = animal
 
         self.__images = {}
