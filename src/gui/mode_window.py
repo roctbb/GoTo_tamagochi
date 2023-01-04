@@ -35,6 +35,7 @@ class ModeWindow:
         if self.game.is_over():
             if self.farm_window:
                 self.farm_window.close()
+                self.farm_window = None
 
         self.window.after(1000, self.tick)
 
