@@ -33,10 +33,10 @@ class ModeWindow:
         mainloop()
 
     def tick(self):
-        if self.farm_window:
-            self.farm_window.tick()
 
-        self.game.tick()
+        if self.farm_window:
+            self.game.tick()
+            self.farm_window.tick()
 
         if self.game.is_over():
             if self.farm_window:
