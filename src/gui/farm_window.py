@@ -47,7 +47,10 @@ class FarmWindow:
     def close(self):
         self.window.destroy()
         if self.on_close:
-            self.on_close()
+            callback = self.on_close
+            self.on_close = None
+            callback()
+
 
     def tick(self):
         for i in range(len(self.farm.animals)):

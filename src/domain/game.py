@@ -8,6 +8,7 @@ class Game:
         self.__points = 0
         self.__record = None
         self.__started = False
+        self.__load_record_from_storage()
 
     def tick(self):
         if self.__started:
@@ -41,6 +42,13 @@ class Game:
     def __save_record_to_storage(self):
         with open(storage_path('scores.txt'), 'a') as file:
             file.write(str(self.record) + "\n")
+
+    def __load_record_from_storage(self):
+        with open(storage_path("scores.txt")) as file:
+            data = file.read().split('\n')[-1]
+
+            self.__record = int(data)
+
     def end(self):
         self.__started = False
         print("Game is ended")

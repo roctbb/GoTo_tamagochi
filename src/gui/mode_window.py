@@ -13,8 +13,7 @@ class ModeWindow:
         self.window.title("Выбор сложности")
         self.farm_window = None
         self.price_var = StringVar()
-        with open(storage_path("scores.txt")) as file:
-            data = file.read().split('\n')[-1]
+
 
 
         Label(self.window, textvariable=self.price_var, width=25, height=5).pack()
@@ -33,13 +32,13 @@ class ModeWindow:
     def __end(self):
         if not self.game.is_over():
             self.game.end()
-        self.window.deiconify()
         showinfo(title="Поражение", message="Вы проиграли!")
+        self.window.deiconify()
 
 
     def tick(self):
 
-        if self.farm_window:
+        if self.farm_window and not self.game.is_over():
             self.game.tick()
             self.farm_window.tick()
 
