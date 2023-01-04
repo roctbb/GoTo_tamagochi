@@ -71,3 +71,7 @@ class Animal:
                 or self.__hunger < self.__max_hunger // 2:
             return True
         return False
+
+    @property
+    def state(self):
+        return "normal" if not self.is_bad() else "bad"
