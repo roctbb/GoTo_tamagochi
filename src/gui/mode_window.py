@@ -10,11 +10,14 @@ class ModeWindow:
         self.window = Tk()
         self.window.title("Выбор сложности")
         self.farm_window = None
+        self.price_var = StringVar()
+
+        Label(self.window, textvariable=self.price_var, width=25, height=5).pack()
 
         if self.game.record:
-            Label(self.window, text=self.game.record, width=25, height=5).pack()
+            self.price_var.set(f"Ваш рекорд: {self.game.record}")
         else:
-            Label(self.window, text="Вы ещё не играли.", width=25, height=5).pack()
+            self.price_var.set("Вы ещё не играли.")
 
         Button(self.window, text="Легко", width=30, height=5, command=self.__start_easy).pack()
         Button(self.window, text="Средне", width=30, height=5, command=self.__start_medium).pack()
@@ -25,6 +28,7 @@ class ModeWindow:
     def __end(self):
         self.game.end()
         self.window.deiconify()
+        self.price_var.set(f"Ваш рекорд: {self.game.record}")
 
     def tick(self):
         if self.farm_window:
