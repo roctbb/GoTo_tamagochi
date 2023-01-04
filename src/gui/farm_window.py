@@ -25,7 +25,8 @@ class FarmWindow:
             img_photo = ImageTk.PhotoImage(img)
             self.__images.append(img_photo)
 
-            Button(self.window, image=img_photo, width=100, height=100, command=lambda: self.__show_window_for(self.farm.animals[i])).grid(
+            btn = []
+            Button(self.window, image=img_photo, width=100, height=100, command=lambda: self.__show_window_for(self.farm.animals[i]) +).grid(
                 row=i // 5, column=i % 5)
 
         self.window.protocol("WM_DELETE_WINDOW", self.close)
@@ -39,7 +40,7 @@ class FarmWindow:
             self.on_close()
 
     def tick(self):
-        if Animal.is_bad == True():
+        if Animal.is_bad() == True:
             image_path = asset_path(IMAGES[Animal.image_type]["bad"])
 
         for child in self.children:
