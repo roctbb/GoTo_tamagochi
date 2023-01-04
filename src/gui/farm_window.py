@@ -1,3 +1,4 @@
+from domain.animal import Animal
 from gui.animal_window import AnimalWindow
 from tkinter import *
 from config import *
@@ -38,6 +39,8 @@ class FarmWindow:
             self.on_close()
 
     def tick(self):
+        if Animal.is_bad == True():
+            image_path = asset_path(IMAGES[Animal.image_type]["bad"])
 
         for child in self.children:
             child.tick()
