@@ -1,7 +1,7 @@
 import random
 from config import *
 
-from domain.common import get_name
+from domain.common import get_name, get_image
 
 
 class Animal:
@@ -13,6 +13,7 @@ class Animal:
         self.__max_mood = random.randint(MEAN_ANIMAL_PARAM - ANIMAL_SPREAD, MEAN_ANIMAL_PARAM + ANIMAL_SPREAD)
         self.__mood = self.__max_mood
         self.__name = get_name()
+        self.__image = get_image()
 
     def tick(self):
         self.__mood -= 1
@@ -34,6 +35,10 @@ class Animal:
     @property
     def mood(self):
         return self.__mood
+
+    @property
+    def image(self):
+        return self.__image
 
     @property
     def pr_max_hunger(self):
