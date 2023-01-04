@@ -8,12 +8,14 @@ from pkg_resources.extern import names
 from config import IMAGES
 from domain.common import asset_path
 from domain.game import Game
+import tkinter as tk
 
 class AnimalWindow:
 
     def __init__(self, parent, animal):
         self.window = Toplevel(parent)
         self.window.title("Питомец")
+        self.window.geometry("400x200+300+300")
 
         self.animal = animal
 

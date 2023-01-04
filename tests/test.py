@@ -1,11 +1,17 @@
-from tkinter import *
-from PIL import Image, ImageTk
+import tkinter as tk
+root = tk.Tk()
+root.title('Tkinter Window - Center')
 
-img1 = ImageTk.PhotoImage(Image.open("face1.jpg"))
-img2 = ImageTk.PhotoImage(Image.open("face2.jpg"))
+window_width = 300
+window_height = 200
 
-image_label = Label(self.window, image=img1)
-image_label.pack()
+# get the screen dimension
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
 
-# когда хотим поменять картинку - вызываем configure
-image_label.configure(image=img2)
+# find the center point
+center_x = int(screen_width/2 - window_width / 2)
+center_y = int(screen_height/2 - window_height / 2)
+
+# set the position of the window to the center of the screen
+root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
