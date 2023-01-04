@@ -14,6 +14,7 @@ class AnimalWindow:
     def __init__(self, parent, animal):
         self.window = Toplevel(parent)
         self.window.title("Питомец")
+        self.window.geometry("500x100+300+300")
 
         self.animal = animal
 
