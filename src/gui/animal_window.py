@@ -9,8 +9,6 @@ from config import IMAGES
 from domain.common import asset_path
 from domain.game import Game
 
-Label = Label
-
 class AnimalWindow:
 
     def __init__(self, parent, animal):
@@ -30,8 +28,6 @@ class AnimalWindow:
         self.hunger_var = IntVar()
         self.mood_var = IntVar()
 
-        self.update()
-
         print("Голод -", self.hunger_var.get(), ",", "Здоровье -", self.health_var.get(), ",", "Настроение -",
               self.mood_var.get())
 
@@ -45,15 +41,16 @@ class AnimalWindow:
         Button(self.window, text="Играть", command=self.play, fg="green").grid(row=3, column=2)
 
         Label(self.window, text=animal.name, width=25, height=5).grid(row=0, column=1)
-        image_label = Label(self.window, image=self.__images[self.animal.state])
-        image_label.grid(row=1, column=0, rowspan=3)
+        self.__image_label = Label(self.window, image=self.__images[self.animal.state])
+        self.__image_label.grid(row=1, column=0, rowspan=3)
 
-        image_label.configure(image_label=self.animal.state)
+        self.update()
 
     def tick(self):
         self.update()
 
     def update(self):
+        self.__image_label.configure(image=self.__images[self.animal.state])
         self.health_var.set(self.animal.health)
         self.hunger_var.set(self.animal.hunger)
         self.mood_var.set(self.animal.mood)
