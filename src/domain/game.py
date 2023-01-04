@@ -44,11 +44,13 @@ class Game:
             file.write(str(self.record) + "\n")
 
     def __load_record_from_storage(self):
-        with open(storage_path("scores.txt")) as file:
-            data = file.read().split('\n')[-1]
+        try:
+            with open(storage_path("scores.txt")) as file:
+                data = file.read().split('\n')[-1]
 
-            self.__record = int(data)
-
+                self.__record = int(data)
+        except:
+            pass
     def end(self):
         self.__started = False
         print("Game is ended")

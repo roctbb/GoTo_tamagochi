@@ -46,6 +46,8 @@ class AnimalWindow:
 
         self.update()
 
+        self.window.protocol("WM_DELETE_WINDOW", lambda: None)
+
     def tick(self):
         self.update()
 
