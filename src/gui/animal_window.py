@@ -2,6 +2,8 @@ from tkinter.ttk import *
 from tkinter import *
 from tokenize import Name
 
+from pkg_resources.extern import names
+
 from domain.game import Game
 
 number = 0
@@ -33,7 +35,7 @@ class AnimalWindow:
         Progressbar(self.window, variable=self.mood_var, maximum=animal.pr_max_mood).grid(row=3, column=2)
         Button(self.window, text="Играть", command=self.play, fg="green").grid(row=3, column=3)
 
-        Label(self.window, text="Зверек", width=25, height=5).grid(row=0, column=1)
+        Label(self.window, text="gek", width=25, height=5).grid(row=0, column=1)
 
 
     def tick(self):
