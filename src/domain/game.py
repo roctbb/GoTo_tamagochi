@@ -1,17 +1,16 @@
-from threading import Thread
-import time
 from domain.farm import Farm
 
 
 class Game:
     def __init__(self):
         self.__farm = None
-        self.__points = None
+        self.__points = 0
         self.__record = None
         self.__started = False
 
     def tick(self):
         if self.__started:
+            self.__points += 1
             for animal in self.__farm.animals:
                 if not animal.is_alive():
                     self.end()
@@ -43,3 +42,4 @@ class Game:
         print("Game is ended")
         if not self.__record or self.__points > self.__record:
             self.__record = self.__points
+        self.__points = 0

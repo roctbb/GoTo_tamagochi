@@ -1,9 +1,7 @@
 import random
-import time
-from threading import Thread
+from config import *
 
 from domain.common import get_name
-from config import *
 
 
 class Animal:
@@ -57,8 +55,6 @@ class Animal:
 
     def play(self):
         self.__mood = self.__max_mood
-
-
 
     def is_alive(self):
         if self.__mood > 0 and self.__health > 0 and self.__hunger > 0:
