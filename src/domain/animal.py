@@ -3,15 +3,16 @@ import time
 from threading import Thread
 
 from domain.common import get_name
+from config import *
 
 
 class Animal:
     def __init__(self):
-        self.__max_hunger = random.randint(50, 250)
+        self.__max_hunger = random.randint(MEAN_ANIMAL_PARAM - ANIMAL_SPREAD, MEAN_ANIMAL_PARAM + ANIMAL_SPREAD)
         self.__hunger = self.__max_hunger
-        self.__max_health = random.randint(100, 300)
+        self.__max_health = random.randint(MEAN_ANIMAL_PARAM - ANIMAL_SPREAD, MEAN_ANIMAL_PARAM + ANIMAL_SPREAD)
         self.__health = self.__max_health
-        self.__max_mood = random.randint(50, 250)
+        self.__max_mood = random.randint(MEAN_ANIMAL_PARAM - ANIMAL_SPREAD, MEAN_ANIMAL_PARAM + ANIMAL_SPREAD)
         self.__mood = self.__max_mood
         self.__name = get_name()
 
