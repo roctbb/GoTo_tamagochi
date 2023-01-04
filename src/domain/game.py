@@ -46,8 +46,7 @@ class Game:
     def __load_record_from_storage(self):
         try:
             with open(storage_path("scores.txt")) as file:
-                data = file.read().split('\n')[-1]
-
+                data = file.read().strip('\n').split('\n')[-1]
                 self.__record = int(data)
         except:
             pass
