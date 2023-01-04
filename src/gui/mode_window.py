@@ -26,6 +26,7 @@ class ModeWindow:
 
         self.window.after(1000, self.tick)
 
+
     def __end(self):
         if not self.game.is_over():
             self.game.end()
